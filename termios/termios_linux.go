@@ -1,6 +1,7 @@
 package termios
 
 import (
+	"errors"
 	"syscall"
 	"unsafe"
 )
@@ -66,12 +67,14 @@ func Tcflush(fd, selector uintptr) error {
 
 // Tiocinq returns the number of bytes in the input buffer.
 func Tiocinq(fd uintptr, argp *int) error {
-	return ioctl(fd, syscall.TIOCINQ, uintptr(unsafe.Pointer(argp)))
+	return errors.New("Unimplemented")
+	// return ioctl(fd, syscall.TIOCINQ, uintptr(unsafe.Pointer(argp)))
 }
 
 // Tiocoutq return the number of bytes in the output buffer.
 func Tiocoutq(fd uintptr, argp *int) error {
-	return ioctl(fd, syscall.TIOCOUTQ, uintptr(unsafe.Pointer(argp)))
+	return errors.New("Unimplemented")
+	// return ioctl(fd, syscall.TIOCOUTQ, uintptr(unsafe.Pointer(argp)))
 }
 
 // Cfgetispeed returns the input baud rate stored in the termios structure.
